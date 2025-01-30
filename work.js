@@ -1,13 +1,13 @@
-// function minuteToSeconds(minutes) { //parameter is minutes
-//     const secondsPerMinute = 60;
-//     console.log("There are " + minutes * secondsPerMinute + " seconds in " + minutes + " minutes"); // statements
-// }
+function minuteToSeconds(minutes) { //parameter is minutes
+    const secondsPerMinute = 60;
+    console.log("There are " + minutes * secondsPerMinute + " seconds in " + minutes + " minutes"); // statements
+}
 
 
 
-// minuteToSeconds(15) // argument is 15
-// minuteToSeconds(66) // argument is 66
-// minuteToSeconds(5) // argument is 5
+minuteToSeconds(15) // argument is 15
+minuteToSeconds(66) // argument is 66
+minuteToSeconds(5) // argument is 5
 
 
 // // Write a JavaScript function to calculate the area of a triangle where three sides are 5, 6, 7.
@@ -105,31 +105,31 @@ getSquare(5); //25
 getSquare(10); //100
 
 
-function getSquare2(number) {  //number is = 5, number is 10
-    const exponentiation = Math.pow(number, 2); // 5 raise to power 2, exp = 25, 100
-    console.log(exponentiation); // 25 , 100
+function getSquare2(number) {  //number is = 5, number is 410
+    const exponentiation = Math.pow(number, 2); // 5 raise to power 2, exp = 25, 168100
+    console.log(exponentiation); // 25 , 168100
 
 }
 getSquare2(5); //25
-getSquare2(410); //100
+getSquare2(410); //168100
 // Write a JavaScript function to get the square root of a given number.
 
 
-// function getSquareRoot(number) {
-//     const squareRoot = Math.sqrt(number)
-//     console.log(squareRoot);
+function getSquareRoot(number) {
+    const squareRoot = Math.sqrt(number)
+    console.log(squareRoot);
 
-// }
+}
 
-// getSquareRoot(16)
+getSquareRoot(16)
 getSquareRoot(25)
 
-function getSquareRoot(number) {
+function getSquareRoot1(number) {
     const squareRoot = Math.sqrt(number);
     return squareRoot;
 }
 
-const result$ = getSquareRoot(16);
+const result$ = getSquareRoot1(16);
 console.log(result$);
 
 
@@ -150,8 +150,8 @@ console.log(result$);
 //////////////////////////////////////////////////////////////
 // Write a JavaScript function to get the cube of a given number.
 
-function getCube(number) {  //number is = 5, number is 4
-    const exponentiation = Math.pow(number, 3); // 5 raise to power 3, exp = 125, 64
+function getCube(number) {  //number is = 5, number is 4 , number is 3
+    const exponentiation = Math.pow(number, 3); // raise to power 3, exp = 125, 64 , 27
     console.log(exponentiation); // 125 , 64 , 27
 
 }
@@ -163,24 +163,14 @@ getCube(3); //27
 // Create a function that takes a number as an argument, 
 // increments the number by 1 
 // and returns the result.
+// addition(0) ➞ 1
 
 
-
-// addition(0) 
-// 
-// ➞ 1
-
-
-
-// addition(9) ➞ 10
-// addition(-3) ➞ -2
-
-
-function addition(number) { //number is 0
-    const increment = number + 1;  //1
-    return increment; //1
+function addition(number) { 
+    const increment = number + 1;  
+    return increment; 
 }
-const result = addition(5); //1
+const result = addition(0); 
 console.log(result); //1
 
 //////////////////////////////////////////////////////////////////////
@@ -284,13 +274,13 @@ console.log(fiftyThirtyTwenty(13450)); // { Needs: 6725, Wants: 4035, Savings: 2
 function getTodaysDate() {
     const d = new Date();
 
-    // const day = String(d.getDate()).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
 
-    // const month = String(d.getMonth() + 1).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
 
-    // const year = d.getFullYear();
+    const year = d.getFullYear();
 
-    // return currentDate = day + "/" + month + "/" + year;
+    return currentDate = day + "/" + month + "/" + year;
     return d;
 }
 console.log(getTodaysDate());
@@ -377,14 +367,14 @@ console.log(convertToString(12)); // -> "12"
 console.log(convertToString(5)); // -> "5"
 
 
-// function convertToString(number) {
-//     const numb = number
-//     const str = numb.toString();
-//     return str
-//   }
+function convertToString(number) {
+    const numb = number
+    const str = numb.toString();
+    return str
+}
 
-//   console.log(convertToString(12)); // -> "12"
-//   console.log(convertToString(5)); // -> "5"
+console.log(convertToString(12)); // -> "12"
+console.log(convertToString(5)); // -> "5"
 
 
 // Write a JavaScript function to split a string and convert it into an array of words.
@@ -468,7 +458,7 @@ console.log(repeat('Ha!', 3));
 
 function strip(str) {
     return str.trim();
-} b
+}
 
 console.log(strip(' hello world '));
 console.log(strip(' w3resource '));
