@@ -337,28 +337,14 @@ console.log(newPerson);
 // isString('w3resource'); -> true
 // // isString(22); -> false
 
+
+
 function isString(input) {
-    if (typeof input === `string`) {
-        return true;
-    } else {
-        return false;
-    }
+    return typeof input === `string`;
 }
 console.log(isString('w3resource'));
 console.log(isString(22));
 
-// function isString(input) {
-//     return typeof input === `string`;
-// }
-// console.log(isString('w3resource'));
-// console.log( isString(22));
-
-// function isString(input) {
-//          return typeof input === `string`? true : false;
-//     }
-
-// console.log(isString('w3resource'));
-// console.log( isString(22));
 
 //////////////////////////////////////////////////////////////////////
 // Write a JavaScript function to check whether a string is blank or not.
@@ -368,11 +354,7 @@ console.log(isString(22));
 
 
 function isBlank(string) {
-    if (string === '') {
-        return true;
-    } else {
-        return false;
-    }
+    return string === "";
 }
 const result1 = isBlank('')
 const result2 = isBlank('abc');
@@ -444,7 +426,11 @@ function stringParameterize(str) {
     return str.replaceAll(/ /g, '-');
 }
 
-console.log(stringParameterize("Alex Code from USA."));  
+console.log(stringParameterize("Alex Code from USA."));
+
+
+
+
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -482,7 +468,7 @@ console.log(repeat('Ha!', 3));
 
 function strip(str) {
     return str.trim();
-}
+} b
 
 console.log(strip(' hello world '));
 console.log(strip(' w3resource '));
@@ -506,11 +492,7 @@ console.log(charIndex('Alex', 2));
 //containsString('Alex Code', "java"); -> false
 
 function containsString(string, value) {
-    if (string.includes(value)) {
-        return true;
-    } else {
-        return false;
-    }
+    return string.includes(value)
 }
 console.log(containsString('Hello World', "World"));
 console.log(containsString('Alex Code', "java"));
