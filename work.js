@@ -166,11 +166,11 @@ getCube(3); //27
 // addition(0) ➞ 1
 
 
-function addition(number) { 
-    const increment = number + 1;  
-    return increment; 
+function addition(number) {
+    const increment = number + 1;
+    return increment;
 }
-const result = addition(0); 
+const result = addition(0);
 console.log(result); //1
 
 //////////////////////////////////////////////////////////////////////
@@ -486,3 +486,89 @@ function containsString(string, value) {
 }
 console.log(containsString('Hello World', "World"));
 console.log(containsString('Alex Code', "java"));
+
+//////////////////////////////////////////////////////////////////////
+// Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.
+// toNumberArray(["9.4", "4.2"]) ➞ [9.4, 4.2]
+// toNumberArray(["91", "44"]) ➞ [91, 44]
+
+// function toNumberArray(string) {
+//     return string.map(Number);
+// }
+// console.log(toNumberArray(["9.4", "4.2"])); //[ 9.4, 4.2 ]
+// console.log(toNumberArray(["91", "44"])); //[ 91, 44 ]
+
+function  toNumberArray(arrayOfString) {
+ const arrayOfNumbers = [];
+ for (let index = 0 ; index < arrayOfString.length ; index++){
+    arrayOfNumbers.push(Number(arrayOfString[index]))
+ }  
+ return arrayOfNumbers;
+
+}
+console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
+
+// function  toNumberArray(arrayOfString) {
+//     const arrayOfNumbers = [];
+//     for (const item of arrayOfString){
+//        arrayOfNumbers.push(Number(item))
+//     }  
+//     return arrayOfNumbers;
+   
+//    }
+//    console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
+   
+   
+
+
+/////////////////////////////////////////////////////////////////////////
+// Create a function that takes an array of numbers or letters and returns a string.
+// arrayToString([1, 2, 3, 4, 5, 6]) ➞ "123456"
+// arrayToString(["a", "b", "c", "d", "e", "f"]) ➞ "abcdef"
+
+// function arrayToString(input) {
+//     return input.join("");
+// }
+// console.log(arrayToString([1, 2, 3, 4, 5, 6])); //123456
+// console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
+
+function arrayToString(array) { //create a function that takes on parameter
+    let nString = "" //create an empty string 
+    for (let index = 0; index < array.length; index++) {  //loop through the array 
+        nString += array[index]        //concatenate elements of the array index to empty string (add and assign)
+    }
+    return nString //return string
+}
+console.log(arrayToString([1, 2, 3, 4, 5, 6])); //123456  //call the function with the argument and log it to the terminal
+console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
+
+/////////////////////////////////////////////////////////////
+// Given two arguments, return an array which contains these two arguments.
+// makePair(1, 2) ➞ [1, 2]
+// makePair(51, 21) ➞ [51, 21]
+
+function makePair(num1, num2) {
+    return [num1, num2];
+}
+
+console.log(makePair(1, 2)); //[1, 2]
+console.log(makePair(51, 21)); //[51, 21]
+
+//////////////////////////////////////////////////////////////////////
+
+// Write a simple JavaScript program to join all elements of the following array into a string.
+// Sample array : myColor = ["Red", "Green", "White", "Black"];
+// "Red,Green,White,Black"
+// "Red+Green+White+Black"
+
+const myColor = ["Red", "Green", "White", "Black"];
+
+// Joining with commas
+const joinedWithCommas = myColor.join(',');
+console.log(joinedWithCommas); // ➞ "Red,Green,White,Black"
+
+// Joining with plus signs
+const joinedWithPlus = myColor.join('+');
+console.log(joinedWithPlus); // ➞ "Red+Green+White+Black"
+
+////////////////////////////////////////////////////////////
