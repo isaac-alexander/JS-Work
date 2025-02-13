@@ -563,12 +563,76 @@ console.log(makePair(51, 21)); //[51, 21]
 
 const myColor = ["Red", "Green", "White", "Black"];
 
-// Joining with commas
-const joinedWithCommas = myColor.join(',');
-console.log(joinedWithCommas); // ➞ "Red,Green,White,Black"
+// const joinedWithCommas = myColor.join(',');
+// console.log(joinedWithCommas); // ➞ "Red,Green,White,Black"
 
-// Joining with plus signs
-const joinedWithPlus = myColor.join('+');
-console.log(joinedWithPlus); // ➞ "Red+Green+White+Black"
+// const joinedWithPlus = myColor.join('+');
+// console.log(joinedWithPlus); // ➞ "Red+Green+White+Black"
 
-////////////////////////////////////////////////////////////
+let joinedString = ""; //create empty string
+let seperator = "+"
+
+for (let index = 0; index < myColor.length; index++) { //loop through the array
+    if (joinedString == "") { //concatenate if its an empty string
+        joinedString += myColor[index]; //add the first element "Red"
+    } else { //else concatenate if the string not empty add a comma (,)
+        joinedString += seperator + myColor[index] //adds other elements concatenating them with the comma(,)
+    }
+}
+ console.log(joinedString);
+ 
+
+
+//////////////////////////////////////////////////////////////////////
+
+// Write a JavaScript program to compute the sum and product of an array of integers.
+// input: [2,4,6,8]
+// output: sum is 20
+  const input = [2,4,6,8] ;
+  let sum1 = 0;
+
+  for (let index = 0; index < input.length; index++) {
+    sum1 += input[index];
+    
+  }
+  console.log(sum1);
+  
+  ///////////////////////////////////////////////////////////////////////
+//   JavaScript function to create a specified number of elements with a pre-filled numeric value array.
+//   array_filled(6, 0) => [0, 0, 0, 0, 0, 0]
+//   array_filled(4, 11) =>  [11, 11, 11, 11]
+
+function array_filled( length, value) {
+    const nArray = []
+    for (index = 0; index < length; index++){
+        nArray.push(value)
+    }    
+    return nArray
+}
+console.log(array_filled(6, 0));
+console.log(array_filled(4, 11));
+
+/////////////////////////////////////////////////////////////////////
+// Write a function that converts an object into an array of keys and values.
+// objectToArray({
+//   D: 1,
+//   B: 2,
+//   C: 3
+// }) ➞ [["D", 1], ["B", 2], ["C", 3]]
+
+function objectToArray(obj) {
+    const result = [];
+    const keys = Object.keys(obj);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      result.push([key, obj[key]]);
+    }
+    return result;
+  }
+  
+  console.log(objectToArray({
+    D: 1,
+    B: 2,
+    C: 3
+  })); // ➞ [["D", 1], ["B", 2], ["C", 3]]
+  
