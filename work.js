@@ -487,38 +487,53 @@ function containsString(string, value) {
 console.log(containsString('Hello World', "World"));
 console.log(containsString('Alex Code', "java"));
 
+
+
 //////////////////////////////////////////////////////////////////////
 // Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.
 // toNumberArray(["9.4", "4.2"]) ➞ [9.4, 4.2]
 // toNumberArray(["91", "44"]) ➞ [91, 44]
 
-// function toNumberArray(string) {
-//     return string.map(Number);
-// }
-// console.log(toNumberArray(["9.4", "4.2"])); //[ 9.4, 4.2 ]
-// console.log(toNumberArray(["91", "44"])); //[ 91, 44 ]
+//Using the .map method
+//Step 1: Create a function with the function name toNumberArray taking one parameter(string), and takes an argument
+//step 2: Inside the function, it uses the map method to iterate over each element in the string array and apply the Number function to convert each string element to a number.
+//step 3: The toNumberArray function is called with the array ["9.4", "4.2"] as an argument.
 
-function  toNumberArray(arrayOfString) {
- const arrayOfNumbers = [];
- for (let index = 0 ; index < arrayOfString.length ; index++){
-    arrayOfNumbers.push(Number(arrayOfString[index]))
- }  
- return arrayOfNumbers;
+function toNumberArray(string) {
+    return string.map(Number);
+}
+console.log(toNumberArray(["9.4", "4.2"])); //[ 9.4, 4.2 ]
+console.log(toNumberArray(["91", "44"])); //[ 91, 44 ]
+
+
+//using the for loop method
+//Step 1: Create a function with the function name toNumberArray taking one parameter(arrayOfString), and takes an argument
+//Step 2: Creates an empty array called arrayOfNumbers. It will be used to store the converted numbers.
+//Step 3: Create a for loop which will iterate over each element in the arrayOfString array.
+//Step 4: Inside the for loop convert the element at arrayOfString[index] to a number using the Number function. It then pushes (adds) the converted number to the arrayOfNumbers array and ends the loop
+//Step 5: Return the arrayOfNumbers array which now contains all the new numbers.
+
+function toNumberArray(arrayOfString) {
+    const arrayOfNumbers = [];
+    for (let index = 0; index < arrayOfString.length; index++) {
+        arrayOfNumbers.push(Number(arrayOfString[index]))
+    }
+    return arrayOfNumbers;
 
 }
-console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
+console.log('arrayOfNumbers', toNumberArray(["9.4", "4.2"]));
 
-// function  toNumberArray(arrayOfString) {
-//     const arrayOfNumbers = [];
-//     for (const item of arrayOfString){
-//        arrayOfNumbers.push(Number(item))
-//     }  
-//     return arrayOfNumbers;
-   
-//    }
-//    console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
-   
-   
+function  toNumberArray(arrayOfString) {
+    const arrayOfNumbers = [];
+    for (const item of arrayOfString){
+       arrayOfNumbers.push(Number(item))
+    }  
+    return arrayOfNumbers;
+
+   }
+   console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
+
+
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -526,18 +541,31 @@ console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
 // arrayToString([1, 2, 3, 4, 5, 6]) ➞ "123456"
 // arrayToString(["a", "b", "c", "d", "e", "f"]) ➞ "abcdef"
 
-// function arrayToString(input) {
-//     return input.join("");
-// }
-// console.log(arrayToString([1, 2, 3, 4, 5, 6])); //123456
-// console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
+//Using .join method
+//Step 1: Create a function with the function name arrayToString taking one parameter(input), and takes an argument
+//step 2: Inside the function, it uses the join method to concatenate each elements of the array into a single string.
+//step 3: console.log(arrayToString([1, 2, 3, 4, 5, 6]));.
 
-function arrayToString(array) { //create a function that takes on parameter
-    let nString = "" //create an empty string 
-    for (let index = 0; index < array.length; index++) {  //loop through the array 
-        nString += array[index]        //concatenate elements of the array index to empty string (add and assign)
+function arrayToString(input) {
+    return input.join("");
+}
+console.log(arrayToString([1, 2, 3, 4, 5, 6])); //123456
+console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
+
+
+//The for loop method
+//Step 1: create a function that takes on parameter
+//Step 2: create an empty string 
+//Step 3: create a for loop to loop through the array 
+//Step 4: concatenate elements of the array index to empty string (add and assign) and end the loop
+//Step 5: return string
+
+function arrayToString(array) { 
+    let nString = "" 
+    for (let index = 0; index < array.length; index++) {
+        nString += array[index]       
     }
-    return nString //return string
+    return nString 
 }
 console.log(arrayToString([1, 2, 3, 4, 5, 6])); //123456  //call the function with the argument and log it to the terminal
 console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
@@ -546,6 +574,11 @@ console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
 // Given two arguments, return an array which contains these two arguments.
 // makePair(1, 2) ➞ [1, 2]
 // makePair(51, 21) ➞ [51, 21]
+
+//Step 1:Declare a function named makePair that takes two parameter and two arguments, num1 and num2
+//Step 2: Inside the function create an array with the two arguments num1 and num2 and returns it. End the function
+//Step 3: console.log(makePair(1, 2));   - [1, 2]
+
 
 function makePair(num1, num2) {
     return [num1, num2];
@@ -563,24 +596,32 @@ console.log(makePair(51, 21)); //[51, 21]
 
 const myColor = ["Red", "Green", "White", "Black"];
 
-// const joinedWithCommas = myColor.join(',');
-// console.log(joinedWithCommas); // ➞ "Red,Green,White,Black"
+const joinedWithCommas = myColor.join(',');
+console.log(joinedWithCommas); // ➞ "Red,Green,White,Black"
 
-// const joinedWithPlus = myColor.join('+');
-// console.log(joinedWithPlus); // ➞ "Red+Green+White+Black"
+const joinedWithPlus = myColor.join('+');
+console.log(joinedWithPlus); // ➞ "Red+Green+White+Black"
 
-let joinedString = ""; //create empty string
+
+//Using the for loop and if else statement 
+//Step 1: create empty string
+//Step 2: create a for loop to loop through the array
+// Step 3: in the body of your for loop create an if-else statement that concatenate if its an empty string  else concatenate if the string not empty add a comma (,) then ends the loop
+// Step 4: console.log(joinedString);
+
+
+let joinedString = "";
 let seperator = "+"
 
-for (let index = 0; index < myColor.length; index++) { //loop through the array
-    if (joinedString == "") { //concatenate if its an empty string
-        joinedString += myColor[index]; //add the first element "Red"
-    } else { //else concatenate if the string not empty add a comma (,)
-        joinedString += seperator + myColor[index] //adds other elements concatenating them with the comma(,)
+for (let index = 0; index < myColor.length; index++) {
+    if (joinedString == "") { 
+        joinedString += myColor[index]; 
+    } else {
+        joinedString += seperator + myColor[index]
     }
 }
- console.log(joinedString);
- 
+console.log(joinedString);
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -588,25 +629,39 @@ for (let index = 0; index < myColor.length; index++) { //loop through the array
 // Write a JavaScript program to compute the sum and product of an array of integers.
 // input: [2,4,6,8]
 // output: sum is 20
-  const input = [2,4,6,8] ;
-  let sum1 = 0;
 
-  for (let index = 0; index < input.length; index++) {
+// Step 1: Declare a constant array named input that contains four elements: 2, 4, 6, and 8.
+// Step 2: Initialize an empty variable
+// Step 3: Create a for loop that adds the element at input[index] to the current value of sum1.
+// Step 4: console.log(sum1);
+
+const input = [2, 4, 6, 8];
+let sum1 = 0;
+
+for (let index = 0; index < input.length; index++) {
     sum1 += input[index];
-    
-  }
-  console.log(sum1);
-  
-  ///////////////////////////////////////////////////////////////////////
+
+}
+console.log(sum1);
+
+///////////////////////////////////////////////////////////////////////
 //   JavaScript function to create a specified number of elements with a pre-filled numeric value array.
 //   array_filled(6, 0) => [0, 0, 0, 0, 0, 0]
 //   array_filled(4, 11) =>  [11, 11, 11, 11]
 
-function array_filled( length, value) {
+// Step 1: Create a function named array_filled that takes two parameter and arguments
+// Step 2: Create an empty array
+// Step 3: Create a for loop that iterate length times 
+// Step 4: Use the .push method to push into the empty array and end the loop
+// Step 5: return the new array
+// Step 6: console.log(array_filled(6, 0));
+
+
+function array_filled(length, value) {
     const nArray = []
-    for (index = 0; index < length; index++){
+    for (index = 0; index < length; index++) {
         nArray.push(value)
-    }    
+    }
     return nArray
 }
 console.log(array_filled(6, 0));
@@ -624,15 +679,15 @@ function objectToArray(obj) {
     const result = [];
     const keys = Object.keys(obj);
     for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      result.push([key, obj[key]]);
+        const key = keys[i];
+        result.push([key, obj[key]]);
     }
     return result;
-  }
-  
-  console.log(objectToArray({
+}
+
+console.log(objectToArray({
     D: 1,
     B: 2,
     C: 3
-  })); // ➞ [["D", 1], ["B", 2], ["C", 3]]
-  
+})); // ➞ [["D", 1], ["B", 2], ["C", 3]]
+
