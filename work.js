@@ -523,15 +523,15 @@ function toNumberArray(arrayOfString) {
 }
 console.log('arrayOfNumbers', toNumberArray(["9.4", "4.2"]));
 
-function  toNumberArray(arrayOfString) {
+function toNumberArray(arrayOfString) {
     const arrayOfNumbers = [];
-    for (const item of arrayOfString){
-       arrayOfNumbers.push(Number(item))
-    }  
+    for (const item of arrayOfString) {
+        arrayOfNumbers.push(Number(item))
+    }
     return arrayOfNumbers;
 
-   }
-   console.log('arrayOfNumbers' ,toNumberArray(["9.4", "4.2"]));
+}
+console.log('arrayOfNumbers', toNumberArray(["9.4", "4.2"]));
 
 
 
@@ -560,12 +560,12 @@ console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
 //Step 4: concatenate elements of the array index to empty string (add and assign) and end the loop
 //Step 5: return string
 
-function arrayToString(array) { 
-    let nString = "" 
+function arrayToString(array) {
+    let nString = ""
     for (let index = 0; index < array.length; index++) {
-        nString += array[index]       
+        nString += array[index]
     }
-    return nString 
+    return nString
 }
 console.log(arrayToString([1, 2, 3, 4, 5, 6])); //123456  //call the function with the argument and log it to the terminal
 console.log(arrayToString(["a", "b", "c", "d", "e", "f"])); //abcdef
@@ -614,8 +614,8 @@ let joinedString = "";
 let seperator = "+"
 
 for (let index = 0; index < myColor.length; index++) {
-    if (joinedString == "") { 
-        joinedString += myColor[index]; 
+    if (joinedString == "") {
+        joinedString += myColor[index];
     } else {
         joinedString += seperator + myColor[index]
     }
@@ -675,19 +675,123 @@ console.log(array_filled(4, 11));
 //   C: 3
 // }) ➞ [["D", 1], ["B", 2], ["C", 3]]
 
+// Step 1: Create a function
+// Step 2: Create an empty array in your function 
+// Step 3: Loop through the object using the for-in method 
+// Step 4: Use the .push method to pass the key and obj[key] to the empty array
+
 function objectToArray(obj) {
-    const result = [];
-    const keys = Object.keys(obj);
-    for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        result.push([key, obj[key]]);
+    let arr = [];
+
+    for (let key in obj) {
+        arr.push([key, obj[key]]);
     }
-    return result;
+    return arr
+}
+console.log(objectToArray({ D: 1, B: 2, C: 3 }));
+
+
+///////////////////////////////////////////////////////////////////////
+
+// Create the function that takes an array with objects and returns the sum of people's budgets.
+// getBudgets([
+//   { name: "John", age: 21, budget: 23000 },
+//   { name: "Steve",  age: 32, budget: 40000 },
+//   { name: "Martin",  age: 16, budget: 2700 }
+// ]) ➞ 65700
+
+// Task 1
+// input 
+// const staffsDetails = [
+//   { name: "Jam Josh", age: 44, salary: 4000, currency: "USD" },
+//   { name: "Justina Kap", age: 34, salary: 3000, currency: "USD" },
+//   { name: "Chris Colt", age: 37, salary: 3700, currency: "USD" },
+//   { name: "Jane Doe", age: 24, salary: 4200, currency: "USD" }
+// ];
+
+// output 
+// "I am Jam Josh a staff of Royal Suites."
+// "I am Justina Kap a staff of Royal Suites."
+// "I am Chris Colt a staff of Royal Suites."
+// "I am Jane Doe a staff of Royal Suites."
+
+// output 2 
+// "index 0 : I am Jam Josh a staff of Royal Suites."
+// "index 1 : I am Justina Kap a staff of Royal Suites."
+// "index 2 : I am Chris Colt a staff of Royal Suites."
+// "index 3 : I am Jane Doe a staff of Royal Suites."
+
+// calculate and print the total salaries for all staff: output "NGN 900"
+
+
+const budgets = [
+    { name: "John", age: 21, budget: 23000 },
+    { name: "Steve", age: 32, budget: 40000 },
+    { name: "Martin", age: 16, budget: 2700 }
+];
+
+
+function getBudgets(arr) {
+    let totalBudget = 0;
+    for (let i = 0; i < arr.length; i++) {
+        totalBudget += arr[i].budget;
+    }
+    return totalBudget;
 }
 
-console.log(objectToArray({
-    D: 1,
-    B: 2,
-    C: 3
-})); // ➞ [["D", 1], ["B", 2], ["C", 3]]
+console.log(getBudgets(budgets)); // Output: 65700
 
+let staffsDetails = [
+    { name: "Jam Josh", age: 44, salary: 4000, currency: "USD" },
+    { name: "Justina Kap", age: 34, salary: 3000, currency: "USD" },
+    { name: "Chris Colt", age: 37, salary: 3700, currency: "USD" },
+    { name: "Jane Doe", age: 24, salary: 4200, currency: "USD" }
+];
+
+for (let i = 0; i < staffsDetails.length; i++) {
+    console.log("I am " + staffsDetails[i].name + " a staff of Royal Suites.");
+}
+
+for (let i = 0; i < staffsDetails.length; i++) {
+    console.log("index " + i + " : I am " + staffsDetails[i].name + " a staff of Royal Suites.");
+}
+
+
+
+////////////////////////////////////////////////////////////////////
+
+//   Write a JavaScript program to compute the sum and product of an array of integers.
+
+function sumAndProduct(arr) {
+    let sum = 0;
+    let product = 1;
+
+    for (let index = 0; index < arr.length; index++) {
+        sum += arr[index];
+        product *= arr[index];
+    }
+
+    return { sum: sum, product: product };
+}
+
+const integers = [1, 2, 3, 4, 5];
+
+const outcome = sumAndProduct(integers);
+console.log("Sum:", outcome.sum); // Output: Sum: 15
+console.log("Product:", outcome.product); // Output: Product: 120
+
+
+/////////////////////////////////////////////////////////////////////
+//Write a JavaScript function to get the last element of an array.
+function getLastElement(arr) {
+    if (arr.length === 0) {
+        return null; 
+    }
+    return arr.slice(-1)[0];
+}
+
+const numbers = [1, 2, 3, 4, 5];
+console.log(getLastElement(numbers)); // Output: 5
+
+const emptyArray = [];
+console.log(getLastElement(emptyArray)); // Output: null
