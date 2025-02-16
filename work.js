@@ -722,6 +722,13 @@ console.log(objectToArray({ D: 1, B: 2, C: 3 }));
 // "index 3 : I am Jane Doe a staff of Royal Suites."
 
 // calculate and print the total salaries for all staff: output "NGN 900"
+// Step 1: Declares an array of objects, each containing properties name, age, and budget.
+// Step 2: Create a function taking one parameter
+// Step 3 : Create an empty variable to store the tootal Budget
+// Step 4: Use the foor loop method to loop through the array and increment till it reaches the length of the array
+// Step 5: Inside the loop, add the budget property of the current object (arr[i]) to totalBudget. and end the loop
+// Step 6: return totalBudget and close the function
+// Step 7: Call the getBudgets function with the budgets array and print the result to the console
 
 
 const budgets = [
@@ -740,6 +747,12 @@ function getBudgets(arr) {
 }
 
 console.log(getBudgets(budgets)); // Output: 65700
+
+// Step 1: Declare a variable staffsDetails and initialize it with an array containing objects with properties name, age, salary, and currency.
+// Step 2: Create a for loop that iterates over each element in the staffsDetails array.
+// Step 3: Inside the loop, concatinate strings to the staffsDetails[i].name into the console to introduce each staff member.
+// Step 4:  Starts another for loop that iterates over each element in the staffsDetails array. Inside this loop, concatinate strings to the index and staffsDetails[i].name to introduce each staff member along with their index in the array.
+
 
 let staffsDetails = [
     { name: "Jam Josh", age: 44, salary: 4000, currency: "USD" },
@@ -761,6 +774,17 @@ for (let i = 0; i < staffsDetails.length; i++) {
 ////////////////////////////////////////////////////////////////////
 
 //   Write a JavaScript program to compute the sum and product of an array of integers.
+
+// Step 1: Create a function with the function name sumAndProduct with a single parameter
+// Step 2: Declares two variables, sum and product. sum is initialized to 0 and will be used to get the sum of the array elements. product is initialized to 1 and will be used to get the product of the array elements.
+// Step 3: Loop throught the array
+// Step 4: add and assign the new values to the sum variable
+// Step 5: Multiply and assign the new values to the product variable
+// Step 6: end the loop
+// Step 7: Returns an object containing the final values of sum and product and close th function
+// Step 8: Assign the argument used to call the function to a variable
+// Step 9: log a string "Sum" concatinating it to the object outcome.sum
+// Step 10: log a string "Product" concatinating it to the object outcome.Product
 
 function sumAndProduct(arr) {
     let sum = 0;
@@ -795,3 +819,74 @@ console.log(getLastElement(numbers)); // Output: 5
 
 const emptyArray = [];
 console.log(getLastElement(emptyArray)); // Output: null
+
+// Step 1: Create a function taking one parameter
+// Step 2: Use the .length method to get the length of the array subtracting 1 to get the last index of the array 
+// Step 3: return array
+// Step 4: log the argument used to call the function in the console
+
+const places = ["Lagos", "Calabar", "Delta", "Jos", "Ekiti"];
+
+function getLastElement(array) {
+        return array[array.length -1]
+        
+}
+console.log(getLastElement(["Lagos", "Calabar", "Delta", "Jos", "Ekiti"]));
+
+/////////////////////////////////////////////////////////////////////////
+// Write a JavaScript program to sort the items of an array.
+// Sample array : var arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+// Sample Output : -4,-3,1,2,3,5,6,7,8
+
+
+
+const arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+console.log(arr1); //[ -3, 8, 7, 6, 5, -4, 3, 2, 1 ]
+
+arr1.sort(function(a, b){return a - b});
+console.log(arr1); //[ -4, -3, 1, 2, 3, 5,  6, 7, 8 ]
+
+
+///////////////////////////////////////////////////////////////////////////
+// Square the value of every element in the array.
+// Input : [1, 2, 3, 4, 5];
+// Output: [1, 4, 9, 16, 25]
+
+// Step 1: Defines a function called squareArray that takes one parameter, arr with the input of array
+// Step 2: Create am empty array
+// Step 3: Start a for loop that iterates over each element in the array arr
+// Step 4: Inside the loop, the current array element arr[i] is multiplied by itself and added to the empty squaredArray using the push method and ends the loop
+// Step 5: close the for loop and return squaredArray
+// Step 6: Call the squareArray function with the inputArray array and assigns the returned array to the outputArray variable.
+// Step 7: log outputArray to the console
+
+function squareArray(arr) {
+    let squaredArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      squaredArray.push(arr[i] * arr[i]);
+    }
+    return squaredArray;
+  }
+  
+  let inputArray = [1, 2, 3, 4, 5];
+  let outputArray = squareArray(inputArray);
+  console.log(outputArray); //  [1, 4, 9, 16, 25]
+
+
+///////////////////////////////////////////////////////////////////////
+//   const scores = [12, 55, 70, 47];
+//   calculate and print the total: output "NGN 900"
+
+// Step 1: Create an empty variable with the variable name total
+// Step 2: Create a for loop to iterates over each element in the scores array. Inside the loop the current element scores[i] is added and assigned to empty variable and ends the loop
+
+// Step 3: In the console.log, concatenate a string of "Total: NGN" to the total variable
+
+const scores = [12, 55, 70, 47];
+
+let total = 0;
+for (let i = 0; i < scores.length; i++) {
+  total += scores[i];
+}
+
+console.log("Total: NGN " + total);
