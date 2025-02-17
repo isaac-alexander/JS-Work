@@ -769,7 +769,16 @@ for (let i = 0; i < staffsDetails.length; i++) {
     console.log("index " + i + " : I am " + staffsDetails[i].name + " a staff of Royal Suites.");
 }
 
+// Calculate the total salaries using a for loop
+const exchangeRate = 780; // Assume 1 USD = 780 NGN
+let totalSalariesUSD = 0;
 
+for (let i = 0; i < staffsDetails.length; i++) {
+  totalSalariesUSD += staffsDetails[i].salary;
+}
+
+const totalSalariesNGN = totalSalariesUSD * exchangeRate;
+console.log("Total salaries in NGN: NGN " + totalSalariesNGN); //Total salaries in NGN: NGN 11622000
 
 ////////////////////////////////////////////////////////////////////
 
@@ -889,4 +898,115 @@ for (let i = 0; i < scores.length; i++) {
   total += scores[i];
 }
 
-console.log("Total: NGN " + total);
+console.log("Total: NGN " + total); //Total: NGN 184
+
+
+///////////////////////////////////////////////////////////////////
+
+// return an array which will include all the cities having only the first letter of each city name capitalized.
+// const cities = [
+//   "miami",
+//   "barcelona",
+//   "madrid",
+//   "amsterdam",
+//   "berlin",
+//   "sao paulo",
+//   "lisbon",
+//   "mexico city",
+//   "paris"
+// ];
+
+/* Expected Ouput 1: 
+[
+  "Miami",
+  "Barcelona",
+  "Madrid",
+  "Amsterdam",
+  "Berlin",
+  "Sao paulo",
+  "Lisbon",
+  "Mexico city",
+  "Paris"
+ ];
+*/
+
+/* Expected Ouput 2: 
+[
+  "1. Miami",
+  "2. Barcelona",
+  "3. Madrid",
+  "4. Amsterdam",
+  "5. Berlin",
+  "6. Sao paulo",
+  "7. Lisbon",
+  "8. Mexico city",
+  "9. Paris"
+ ];
+ */
+
+ const cities = [
+    "miami",
+    "barcelona",
+    "madrid",
+    "amsterdam",
+    "berlin",
+    "sao paulo",
+    "lisbon",
+    "mexico city",
+    "paris"
+  ];
+  
+// Step 1: Create Function  
+// Step 2: get the first character and turn to uppercase
+// Step 3: Create new array and push to the new array with a for loop
+
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+    
+  }
+    const capitalizedCities = [];
+  for (let i = 0; i < cities.length; i++) {
+    capitalizedCities.push(capitalizeFirstLetter(cities[i]));
+  }
+  
+  console.log(capitalizedCities);
+  
+//   [
+//     "Miami",
+//     "Barcelona",
+//     "Madrid",
+//     "Amsterdam",
+//     "Berlin",
+//     "Sao paulo",
+//     "Lisbon",
+//     "Mexico city",
+//     "Paris"
+//   ]
+  
+
+
+// Create a new array with capitalized and numbered city names using a for loop
+// concatenate with a string
+const numberedCities = [];
+for (let i = 0; i < cities.length; i++) {
+  numberedCities.push((i + 1) + ". " + capitalizeFirstLetter(cities[i]));
+}
+
+console.log(numberedCities);
+// [
+//   "1. Miami",
+//   "2. Barcelona",
+//   "3. Madrid",
+//   "4. Amsterdam",
+//   "5. Berlin",
+//   "6. Sao paulo",
+//   "7. Lisbon",
+//   "8. Mexico city",
+//   "9. Paris"
+// ]
+
+
+////////////////////////////////////////////////////////////////////////
+// Write a JavaScript function to get the first element of an array. Passing a second parameter 'n' will return the first 'n' elements of the array.
+// first([7, 9, 0, -2]) -> 7
+// first([7, 9, 0, -2], 2) -> [7, 9]
