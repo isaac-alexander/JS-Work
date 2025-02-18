@@ -1010,3 +1010,18 @@ console.log(numberedCities);
 // Write a JavaScript function to get the first element of an array. Passing a second parameter 'n' will return the first 'n' elements of the array.
 // first([7, 9, 0, -2]) -> 7
 // first([7, 9, 0, -2], 2) -> [7, 9]
+
+// Step 1: create a function taking two parameters 
+// Step 2: Use the slice method to slice out the first and second element 
+
+function first(array, n) {
+    if (n === undefined) {
+      return array[0];
+    } else {
+      return array.slice(0, n);
+    }
+  }
+  
+  console.log(first([7, 9, 0, -2])); // Output: 7
+  console.log(first([7, 9, 0, -2], 2)); // Output: [7, 9]
+  
