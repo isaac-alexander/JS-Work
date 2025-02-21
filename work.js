@@ -774,7 +774,7 @@ const exchangeRate = 780; // Assume 1 USD = 780 NGN
 let totalSalariesUSD = 0;
 
 for (let i = 0; i < staffsDetails.length; i++) {
-  totalSalariesUSD += staffsDetails[i].salary;
+    totalSalariesUSD += staffsDetails[i].salary;
 }
 
 const totalSalariesNGN = totalSalariesUSD * exchangeRate;
@@ -818,7 +818,7 @@ console.log("Product:", outcome.product); // Output: Product: 120
 //Write a JavaScript function to get the last element of an array.
 function getLastElement(arr) {
     if (arr.length === 0) {
-        return null; 
+        return null;
     }
     return arr.slice(-1)[0];
 }
@@ -837,8 +837,8 @@ console.log(getLastElement(emptyArray)); // Output: null
 const places = ["Lagos", "Calabar", "Delta", "Jos", "Ekiti"];
 
 function getLastElement(array) {
-        return array[array.length -1]
-        
+    return array[array.length - 1]
+
 }
 console.log(getLastElement(["Lagos", "Calabar", "Delta", "Jos", "Ekiti"]));
 
@@ -849,10 +849,10 @@ console.log(getLastElement(["Lagos", "Calabar", "Delta", "Jos", "Ekiti"]));
 
 
 
-const arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+const arr1 = [-3, 8, 7, 6, 5, -4, 3, 2, 1];
 console.log(arr1); //[ -3, 8, 7, 6, 5, -4, 3, 2, 1 ]
 
-arr1.sort(function(a, b){return a - b});
+arr1.sort(function (a, b) { return a - b });
 console.log(arr1); //[ -4, -3, 1, 2, 3, 5,  6, 7, 8 ]
 
 
@@ -872,14 +872,14 @@ console.log(arr1); //[ -4, -3, 1, 2, 3, 5,  6, 7, 8 ]
 function squareArray(arr) {
     let squaredArray = [];
     for (let i = 0; i < arr.length; i++) {
-      squaredArray.push(arr[i] * arr[i]);
+        squaredArray.push(arr[i] * arr[i]);
     }
     return squaredArray;
-  }
-  
-  let inputArray = [1, 2, 3, 4, 5];
-  let outputArray = squareArray(inputArray);
-  console.log(outputArray); //  [1, 4, 9, 16, 25]
+}
+
+let inputArray = [1, 2, 3, 4, 5];
+let outputArray = squareArray(inputArray);
+console.log(outputArray); //  [1, 4, 9, 16, 25]
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -895,7 +895,7 @@ const scores = [12, 55, 70, 47];
 
 let total = 0;
 for (let i = 0; i < scores.length; i++) {
-  total += scores[i];
+    total += scores[i];
 }
 
 console.log("Total: NGN " + total); //Total: NGN 184
@@ -944,7 +944,7 @@ console.log("Total: NGN " + total); //Total: NGN 184
  ];
  */
 
- const cities = [
+const cities = [
     "miami",
     "barcelona",
     "madrid",
@@ -954,23 +954,45 @@ console.log("Total: NGN " + total); //Total: NGN 184
     "lisbon",
     "mexico city",
     "paris"
-  ];
-  
-// Step 1: Create Function  
-// Step 2: get the first character and turn to uppercase
-// Step 3: Create new array and push to the new array with a for loop
+];
 
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-    
-  }
-    const capitalizedCities = [];
-  for (let i = 0; i < cities.length; i++) {
-    capitalizedCities.push(capitalizeFirstLetter(cities[i]));
-  }
-  
-  console.log(capitalizedCities);
-  
+// Step 1: Create Function  
+// Step 2: Create an empty array
+// Step 3: Loop through the array to get the element
+// Step 4: Get the first character
+// Step 5: Turn the first character to uppercase
+// Step 6: Get the remaining character
+// Step 7: Concatenate the first character to the remaining character
+// Step 8:  Push into thr  empty array/new array
+// Step 9: return the empty/new array
+// Step 10: Log the argument
+
+function capitalizeFirstLetter(cities) {
+    let capitalizedCities = []
+    for (let i = 0; i < cities.length; i++) {
+        cities[i].charAt(0).toUpperCase();
+        cities[i].slice(1);
+        cities[i].charAt(0).toUpperCase() + cities[i].slice(i);
+        capitalizedCities.push(cities[i].charAt(0).toUpperCase() + cities[i].slice(1));
+    }
+    return capitalizedCities
+
+}
+
+const capitalizedCities = (capitalizeFirstLetter([
+    "miami",
+    "barcelona",
+    "madrid",
+    "amsterdam",
+    "berlin",
+    "sao paulo",
+    "lisbon",
+    "mexico city",
+    "paris"
+]));
+console.log(capitalizedCities);
+
+
 //   [
 //     "Miami",
 //     "Barcelona",
@@ -982,16 +1004,21 @@ console.log("Total: NGN " + total); //Total: NGN 184
 //     "Mexico city",
 //     "Paris"
 //   ]
-  
+
 
 
 // Create a new array with capitalized and numbered city names using a for loop
-// concatenate with a string
-const numberedCities = [];
-for (let i = 0; i < cities.length; i++) {
-  numberedCities.push((i + 1) + ". " + capitalizeFirstLetter(cities[i]));
+// // concatenate with a string
+
+function createNumberedCityList(cityList) {
+    let numberedCities = [];
+    for (let i = 0; i < cityList.length; i++) {
+        numberedCities.push((i + 1) + ". " + cityList[i].charAt(0).toUpperCase() + cityList[i].slice(1));
+    }
+    return numberedCities;
 }
 
+const numberedCities = createNumberedCityList(["miami", "barcelona", "madrid", "amsterdam", "berlin", "sao paulo", "lisbon", "mexico city", "paris"]);
 console.log(numberedCities);
 // [
 //   "1. Miami",
@@ -1016,12 +1043,11 @@ console.log(numberedCities);
 
 function first(array, n) {
     if (n === undefined) {
-      return array[0];
+        return array[0];
     } else {
-      return array.slice(0, n);
+        return array.slice(0, n);
     }
-  }
-  
-  console.log(first([7, 9, 0, -2])); // Output: 7
-  console.log(first([7, 9, 0, -2], 2)); // Output: [7, 9]
-  
+}
+
+console.log(first([7, 9, 0, -2])); // Output: 7
+console.log(first([7, 9, 0, -2], 2)); // Output: [7, 9]
