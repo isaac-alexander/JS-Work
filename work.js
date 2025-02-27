@@ -1051,3 +1051,53 @@ function first(array, n) {
 
 console.log(first([7, 9, 0, -2])); // Output: 7
 console.log(first([7, 9, 0, -2], 2)); // Output: [7, 9]
+
+///////////////////////////////////////////////////////////////////////
+// Write a function to check if an array contains a particular number.
+// contains([1, 2, 3, 4, 5], 3) ➞ true
+// contains([1, 1, 2, 1, 1], 3) ➞ false
+
+function containsNumber(array, value) {
+    return array.includes(3)
+}
+console.log(containsNumber([1, 2, 3, 4, 5], 3)); //true
+console.log(containsNumber([1, 1, 2, 1, 1], 3)); //false
+
+///////////////////////////////////////////////////////////////////////
+// JavaScript function that takes an array with mixed data type and calculates the sum of all numbers.
+// ([2, "11", 3, "a2", false, 5, 7, 1]) -> 18
+// ([2, 3, 0, 5, 7, 8, true, false]) -> 25
+
+function sumNumbers(array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[i] === 'number') {
+            sum += array[i];
+        }
+    }
+    return sum;
+}
+console.log(sumNumbers([2, "11", 3, "a2", false, 5, 7, 1])); //  18
+console.log(sumNumbers([2, 3, 0, 5, 7, 8, true, false])); // 25
+
+
+
+////////////////////////////////////////////////////////////////////////
+// return true or false if Apple is in the array of fruits 
+// Input: ["Banana", "Orange", "Strawberry", "Blueberry"] => false
+// Input: ["Banana", "Orange", "Apple", "Blueberry"] => true
+
+function includesApple(array) {
+    return array.includes("Apple")
+}
+console.log(includesApple(["Banana", "Orange", "Strawberry", "Blueberry"]));
+console.log(includesApple(["Banana", "Orange", "Apple", "Blueberry"]));
+
+///////////////////////////////////////////////////////////////////
+// return element with name of cherries
+// const inventory = [
+//   { name: "apples", quantity: 2 },
+//   { name: "bananas", quantity: 0 },
+//   { name: "cherries", quantity: 5 },
+// ];
+// Expected output: { name: 'cherries', quantity: 5 }
