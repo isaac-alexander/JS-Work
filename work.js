@@ -1081,7 +1081,6 @@ console.log(sumNumbers([2, "11", 3, "a2", false, 5, 7, 1])); //  18
 console.log(sumNumbers([2, 3, 0, 5, 7, 8, true, false])); // 25
 
 
-
 ////////////////////////////////////////////////////////////////////////
 // return true or false if Apple is in the array of fruits 
 // Input: ["Banana", "Orange", "Strawberry", "Blueberry"] => false
@@ -1100,4 +1099,67 @@ console.log(includesApple(["Banana", "Orange", "Apple", "Blueberry"]));
 //   { name: "bananas", quantity: 0 },
 //   { name: "cherries", quantity: 5 },
 // ];
-// Expected output: { name: 'cherries', quantity: 5 }
+// Expected output: { name: 'cherries', quantity: 5 } 
+
+const inventory = [
+    { name: "apples", quantity: 2 },
+    { name: "bananas", quantity: 0 },
+    { name: "cherries", quantity: 5 },
+  ];
+  
+  const findCherries = inventory.find(function(inventory) {
+    return inventory.name === "cherries";
+  });
+  
+  console.log(findCherries);
+  
+
+
+///////////////////////////////////////////////////////////////////
+// return first element greater than 10 
+// const array = [5, 12, 8, 130, 44];
+// Expected output: 12
+
+function firstElementGreaterThanTen(array) {
+    for (let index = 0; index < array.length; index++) {
+        if (array[index] > 10) {
+            return array[index];
+        }
+    }
+}
+
+console.log(firstElementGreaterThanTen([5, 12, 8, 130, 44]));
+
+
+/////////////////////////////////////////////////////////////////////
+// Given an array of numbers, return a new array that has only the numbers that are 5 or greater.
+// [3, 6, 8, 2] => [6, 8]
+function numbersGreaterThanFive(array) {
+    let newNumbers = [];
+    for (let index = 0; index < array.length; index++) {
+        if (array[index] >= 5) {
+            newNumbers.push(array[index]);
+        }
+    }
+    return newNumbers;
+}
+
+console.log(numbersGreaterThanFive([3, 6, 8, 2])); // Output: [6, 8]
+
+
+
+///////////////////////////////////////////////////////////////////// 
+// Given an array of numbers, return a new array that only includes the even numbers.
+//[3, 6, 8, 2] => [6, 8, 2]
+
+function displayEvenNumbers(array) {
+    let evenNumbers = [];
+    for (const number of array) {
+        if (number % 2 === 0) {
+            evenNumbers.push(number);
+        }
+    }
+    return evenNumbers;
+}
+console.log(displayEvenNumbers([3, 6, 8, 2]));
+
