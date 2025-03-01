@@ -1058,7 +1058,7 @@ console.log(first([7, 9, 0, -2], 2)); // Output: [7, 9]
 // contains([1, 1, 2, 1, 1], 3) ➞ false
 
 function containsNumber(array, value) {
-    return array.includes(3)
+    return array.includes(value)
 }
 console.log(containsNumber([1, 2, 3, 4, 5], 3)); //true
 console.log(containsNumber([1, 1, 2, 1, 1], 3)); //false
@@ -1068,14 +1068,14 @@ console.log(containsNumber([1, 1, 2, 1, 1], 3)); //false
 // ([2, "11", 3, "a2", false, 5, 7, 1]) -> 18
 // ([2, 3, 0, 5, 7, 8, true, false]) -> 25
 
-function sumNumbers(array) {
-    let sum = 0;
-    for (let i = 0; i < array.length; i++) {
-        if (typeof array[i] === 'number') {
-            sum += array[i];
+function sumNumbers(array) { //[2, "11", 3, "a2" false, 5, 7, 1]
+    let sum = 0; //sum is 0
+    for (let i = 0; i < array.length; i++) { // i = 0; 0 < 8 ; 1< 8, 2< 8, 3<8, 4<8, 5<8, 6<8, 7<8, 8<8
+        if (typeof array[i] === 'number') { //true false true fase false true true
+            sum += array[i];//sum = 0 + 2, sum = 2 + 3, sum = 5 + 5, sum = 10 + 7, sum = 17 + 1, sum = 18
         }
     }
-    return sum;
+    return sum; //18
 }
 console.log(sumNumbers([2, "11", 3, "a2", false, 5, 7, 1])); //  18
 console.log(sumNumbers([2, 3, 0, 5, 7, 8, true, false])); // 25
@@ -1086,8 +1086,8 @@ console.log(sumNumbers([2, 3, 0, 5, 7, 8, true, false])); // 25
 // Input: ["Banana", "Orange", "Strawberry", "Blueberry"] => false
 // Input: ["Banana", "Orange", "Apple", "Blueberry"] => true
 
-function includesApple(array) {
-    return array.includes("Apple")
+function includesApple(array) { //["Banana", "Orange", "Strawberry", "Blueberry"] , ["Banana", "Orange", "Apple", "Blueberry"]
+    return array.includes("Apple") //false, true
 }
 console.log(includesApple(["Banana", "Orange", "Strawberry", "Blueberry"]));
 console.log(includesApple(["Banana", "Orange", "Apple", "Blueberry"]));
@@ -1101,18 +1101,26 @@ console.log(includesApple(["Banana", "Orange", "Apple", "Blueberry"]));
 // ];
 // Expected output: { name: 'cherries', quantity: 5 } 
 
+
+
+
+function findCherries(array) {
+    for (const element of array) {
+        if (element.name === "cherries") {
+            return element;
+        }
+    }
+}
+
 const inventory = [
     { name: "apples", quantity: 2 },
     { name: "bananas", quantity: 0 },
     { name: "cherries", quantity: 5 },
-  ];
-  
-  const findCherries = inventory.find(function(inventory) {
-    return inventory.name === "cherries";
-  });
-  
-  console.log(findCherries);
-  
+];
+
+console.log(findCherries(inventory)); // Output: { name: "cherries", quantity: 5 }
+
+
 
 
 ///////////////////////////////////////////////////////////////////
@@ -1121,9 +1129,9 @@ const inventory = [
 // Expected output: 12
 
 function firstElementGreaterThanTen(array) {
-    for (let index = 0; index < array.length; index++) {
-        if (array[index] > 10) {
-            return array[index];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > 10) {
+            return array[i];
         }
     }
 }
@@ -1136,9 +1144,9 @@ console.log(firstElementGreaterThanTen([5, 12, 8, 130, 44]));
 // [3, 6, 8, 2] => [6, 8]
 function numbersGreaterThanFive(array) {
     let newNumbers = [];
-    for (let index = 0; index < array.length; index++) {
-        if (array[index] >= 5) {
-            newNumbers.push(array[index]);
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] >= 5) {
+            newNumbers.push(array[i]);
         }
     }
     return newNumbers;
@@ -1162,4 +1170,74 @@ function displayEvenNumbers(array) {
     return evenNumbers;
 }
 console.log(displayEvenNumbers([3, 6, 8, 2]));
+
+
+///////////////////////////////////////////////////////////////////////
+
+// Given an array of strings, return a new array that only includes those that are 5 characters or fewer in length
+// ["dog", "wolf", "by", "family", "eaten", "camping"] => ["dog", "wolf", "by", "eaten"]
+
+function getShorterCharacter(array) {
+    let shortCharacter = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].length <= 5) {
+            shortCharacter.push(array[i]);
+        }
+    }
+    return shortCharacter
+}
+const shortCharacter = getShorterCharacter(["dog", "wolf", "by", "family", "eaten", "camping"]);
+
+console.log(shortCharacter); //[ 'dog', 'wolf', 'by', 'eaten' ]
+
+
+
+////////////////////////////////////////////////////////////////////////
+// Given an array of people objects, return a new array that has filtered out all those who don't belong to the club.
+// [
+//     { name: "Angelina Jolie", member: true },
+//     { name: "Eric Jones", member: false },
+//     { name: "Paris Hilton", member: true },
+//     { name: "Kayne West", member: false },
+//     { name: "Bob Ziroll", member: true }
+// ]
+
+
+
+function filterClubMembers(array) {
+    let members = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].member) {
+            members.push(array[i]);
+        }
+    }
+    return members;
+}
+
+const members = filterClubMembers([
+    { name: "Angelina Jolie", member: true },
+    { name: "Eric Jones", member: false },
+    { name: "Paris Hilton", member: true },
+    { name: "Kayne West", member: false },
+    { name: "Bob Ziroll", member: true }
+]);
+
+console.log(members);
+// [
+//   { name: 'Angelina Jolie', member: true },
+//   { name: 'Paris Hilton', member: true },
+//   { name: 'Bob Ziroll', member: true }
+// ]
+
+
+/////////////////////////////////////////////////////////////////////////
+// Make a filtered list of all the people who are old enough to see The Matrix (older than 18)
+// [
+//     { name: "Angelina Jolie", age: 80 },
+//     { name: "Eric Jones", age: 2 },
+//     { name: "Paris Hilton", age: 5 },
+//     { name: "Kayne West", age: 16 },
+//     { name: "Bob Ziroll", age: 100 }
+// ]
+
 
