@@ -1241,3 +1241,107 @@ console.log(members);
 // ]
 
 
+
+const people = [
+    { name: "Angelina Jolie", age: 80 },
+    { name: "Eric Jones", age: 2 },
+    { name: "Paris Hilton", age: 5 },
+    { name: "Kanye West", age: 16 },
+    { name: "Bob Ziroll", age: 100 }
+];
+
+function filterAdults(people) {
+    const oldEnough = [];
+    for (let i = 0; i < people.length; i++) {
+        console.log(people[i].name, people[i].age);
+        if (people[i].age > 18) {
+            oldEnough.push(people[i]);
+            console.log(people[i].name + "is old enough.");
+        } else {
+            console.log(people[i].name + "is not old enough.");
+        }
+    }
+    return oldEnough;
+}
+
+const adults = filterAdults(people);
+
+console.log("Adults:", adults);
+
+
+
+// Write a JavaScript function to remove a specific element from an array.
+// remove_array_element([2, 5, 9, 6], 5);
+// result => [2, 9, 6]
+
+function removeArrayElement(array, element) {
+    const index = array.indexOf(element);
+    if (index > -1) {
+        array.splice(index, 1);
+    }
+    return array;
+}
+
+const newResult = removeArrayElement([2, 5, 9, 6], 5);
+console.log(newResult); // [2, 9, 6]
+
+
+///////////////////////////////////////////////////////////////////
+// Get all male characters and put in new array called maleArray - function one
+// Get all female characters and put in new array called femaleArray - function two
+const characters = [
+    {
+        name: "Luke Skywalker",
+        height: 172,
+        mass: 77,
+        eye_color: "blue",
+        gender: "male",
+    },
+    {
+        name: "Darth Vader",
+        height: 202,
+        mass: 136,
+        eye_color: "yellow",
+        gender: "male",
+    },
+    {
+        name: "Leia Organa",
+        height: 150,
+        mass: 49,
+        eye_color: "brown",
+        gender: "female",
+    },
+    {
+        name: "Anakin Skywalker",
+        height: 188,
+        mass: 84,
+        eye_color: "blue",
+        gender: "male",
+    },
+];
+
+function getMaleCharacters(characters) {
+    const maleArray = [];
+    for (let i = 0; i < characters.length; i++) {
+        if (characters[i].gender === "male") {
+            maleArray.push(characters[i]);
+        }
+    }
+    return maleArray;
+}
+
+const maleArray = getMaleCharacters(characters);
+console.log(maleArray);
+
+function getFemaleCharacters(characters) {
+    const femaleArray = [];
+    for (let i = 0; i < characters.length; i++) {
+        if (characters[i].gender === "female") {
+            femaleArray.push(characters[i]);
+        }
+    }
+    return femaleArray;
+}
+
+const femaleArray = getFemaleCharacters(characters);
+console.log(femaleArray);
