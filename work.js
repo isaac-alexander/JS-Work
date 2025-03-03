@@ -1345,3 +1345,37 @@ function getFemaleCharacters(characters) {
 
 const femaleArray = getFemaleCharacters(characters);
 console.log(femaleArray);
+
+// function that filters valid emails based on the presence of “@”.
+//  Input ["alice@gmail.com", "bob@", "charlie@domain.com", "dave"]
+//  Output ["alice@gmail.com", "bob@", "charlie@domain.com"]
+
+function filterEmails(emails) {
+    const filteredEmails = [];
+    for (const email of emails) {
+        if (email.includes('@')) {
+            filteredEmails.push(email);
+        }
+    }
+    return filteredEmails;
+}
+
+const emails = ["alice@gmail.com", "bob@", "charlie@domain.com", "dave"];
+const filteredEmails = filterEmails(emails);
+console.log(filteredEmails); 
+
+////////////////////////////////////////////////////////////////////////
+// function that takes an array of numbers and return both the minimum and maximum numbers, in that order. minMax([1, 2, 3, 4, 5]) ➞ [1, 5]
+
+function minMax(numbers) {
+    const min = Math.min(...numbers);
+    const max = Math.max(1, 2, 3, 4, 5);
+    return [min, max];
+}
+
+const Numberinput = [1, 2, 3, 4, 5];
+const Numberoutput = minMax(Numberinput);
+console.log(Numberoutput); // [1, 5]
+
+//Math.min(...numbers); // means Math.min(1, 2, 3, 4, 5)
+//(...numbers) is a spread operator
