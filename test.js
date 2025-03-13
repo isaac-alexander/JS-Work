@@ -287,3 +287,66 @@ console.log(`Number of arrays inside the said array: ${countArrays([2, 8, [6, 3,
 //   Write a JavaScript function that accepts a string as a parameter and finds the longest word within the string.
 // Example string : 'Web Development Tutorial'
 // Expected Output : 'Development'
+
+function findLongestWord(str) {
+    let words = str.split(" ");
+    console.log(words);
+
+    let longestWord = "";
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > longestWord.length) {
+            longestWord = words[i];
+        }
+    }
+
+    return longestWord;
+}
+
+const exampleString = "Web Development Tutorial";
+const longestWord = findLongestWord(exampleString);
+console.log(longestWord); // 'Development'
+
+
+////////////////////////////////////////////////////////////////
+//   Write a JavaScript conditional statement to find the largest of five numbers. Display an alert box to show the results.
+// Sample numbers : -5, -2, -6, 0, -1
+// Output : 0
+
+function findLargest(numbers) {
+    let largest = numbers[0];
+
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+    }
+
+    return largest;
+}
+
+const sampleNumbers = [-5, -2, -6, 0, -1];
+console.log(`The largest number is ${findLargest(sampleNumbers)}`); // "The largest number is 0"
+
+/////////////////////////////////////////////////////////////////////////
+// Write a JavaScript program to get all the indexes where NaN is found in a given array of numbers and NaN.
+// ([2, NaN, 8, 16, 32]) -> [1]
+// ([2, 4, NaN, 16, 32, NaN]) -> [2,5]
+// ([2, 4, 16, 32]) ->[]
+
+function findNaNIndexes(arr) {
+    let indexes = [];
+  
+    for (let i = 0; i < arr.length; i++) {
+      if (Number.isNaN(arr[i])) {
+        indexes.push(i);
+      }
+    }
+  
+    return indexes;
+  }
+  
+  console.log(findNaNIndexes([2, NaN, 8, 16, 32])); // [1]
+  console.log(findNaNIndexes([2, 4, NaN, 16, 32, NaN])); // [2, 5]
+  console.log(findNaNIndexes([2, 4, 16, 32])); // []
+  
