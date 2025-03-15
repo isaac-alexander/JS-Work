@@ -131,21 +131,30 @@ console.log("The perimeter of the rectangle is " + value);
 
 function sumPositiveNumbers(array) {
     let sum = 0; //sum is 0
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > 1) {
-            sum += array[i];
+    for (let i = 0; i < array.length; i++) { //i = 0; 0 < 7 (true),i = 1; 1 < 7(true),i = 2; 2 < 7(true),i = 3; 3 < 7(true),i = 4; 4 < 7(true),i = 5; 5 < 7(true),i = 6; 6 < 7(true); i = 7; 7 < 7(false); ends...
+        if (array[i] > 0) { // 1 > 0(true), -4 > 0(false), 12 > 0(true), 0 > 0(false), -3 > 0(false), 29 > 0(true), -150 > 0(false)
+            sum += array[i]; // sum= 0 + 1, sum = 1. sum = 1 + 12, sum = 13. sum = 13 + 29, sum = 42.
         }
     }
-    return sum;
+    return sum; //return 42
 }
-console.log(sumPositiveNumbers([1, -4, 12, 0, -3, 29, -150])); // 41
+console.log('sumPositiveNumbers', sumPositiveNumbers([1, -4, 12, 0, -3, 29, -150])); // 42
 
 // Write a function that creates an object with each (key, value) pair being the (lower case, upper case) versions of a letter, respectively.
 // mapping(["p", "s"]) ➞ { "p": "P", "s": "S" }
 // mapping(["a", "b", "c"]) ➞ { "a": "A", "b": "B", "c": "C" }
 // mapping(["a", "v", "y", "z"]) ➞ { "a": "A", "v": "V", "y": "Y", "z": "Z" }
 
-
+function createObject(array) { //function to create an object
+    let object = {}; //create empty object
+    for (let i = 0; i < array.length; i++) { // i = 0; 0 < 2(true); i = 1; 1 < 2(true); i = 2; 2 < 2(false);
+        object[array[i]] = array[i].toUpperCase(); // p =  P (key = value) ; s = S (key = value)
+    }
+    return object // return {key : value} {p: "P", s: "S"}
+}
+console.log('Create object', createObject(["p", "s"]));
+console.log('Create object', createObject(["a", "b", "c"]));
+console.log('Create object', createObject(["a", "v", "y", "z"]));
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -155,11 +164,11 @@ console.log(sumPositiveNumbers([1, -4, 12, 0, -3, 29, -150])); // 41
 // freeShipping({ "Monopoly": 11.99, "Secret Hitler": 35.99, "Bananagrams": 13.99 }) ➞ true
 
 function freeShipping(order) {
-    let totalCost = 0;
-    for (let item in order) {
-        totalCost += order[item];
+    let totalCost = 0; // assign zero(empty) to totalCost
+    for (let item in order) { // loop through the key of the object "Shampoo"; "rubber Ducks"
+        totalCost += order[item]; //totalCost = 0 + 5.99; totalCost = 5.99. totalCost = 5.99 + 15.99; totalCost = 21.98.
     }
-    return totalCost > 50.00
+    return totalCost > 50.00 // return 21.98 > 50.00 (false)
 }
 console.log(freeShipping({ "Shampoo": 5.99, "Rubber Ducks": 15.99 })); //false
 console.log(freeShipping({ "Flatscreen TV": 399.99 })); //true
@@ -172,16 +181,16 @@ console.log(freeShipping({ "Monopoly": 11.99, "Secret Hitler": 35.99, "Bananagra
 
 function addsNumbers(number) {
     let sum = 0;
-    for (let i = 1; i <= number; i++) {
-        sum += i;
+    for (let i = 1; i <= number; i++) { // i = 1; 1 <= 4(true); i = 2; 2 <= 4(true); i = 3; 3 <= 4(true); i = 4; 4 <= 4(true); i = 5; 5 <= 4(false); .....end
+        sum += i; //sum = 0 + 1 sum = 1; sum = 1 + 2 = sum = 3; sum = 3 + 3 sum = 6; sum = 6 + 4 sum = 10;
 
     }
-    return sum
+    return sum // return 10
 }
-console.log(addsNumbers(4)); //10
-console.log(addsNumbers(10)); //55
-console.log(addsNumbers(20)); //210
-console.log(addsNumbers(30)); //465
+console.log(`sum = `, addsNumbers(4)); //10
+console.log(`sum = `, addsNumbers(10)); //55
+console.log(`sum = `, addsNumbers(20)); //210
+console.log(`sum = `, addsNumbers(30)); //465
 
 ////////////////////////////////////////////////////////////////////
 
@@ -193,7 +202,7 @@ console.log(addsNumbers(30)); //465
 // timeForMilkAndCookies(new Date(2013, 0, 23)) ➞ false
 
 function timeForMilkAndCookies(date) {
-    return date.getMonth() === 11 && date.getDate() === 24;
+    return date.getMonth() === 11 && date.getDate() === 24; //&& and operator checks if both vaues are true
 }
 
 console.log(timeForMilkAndCookies(new Date(2013, 11, 24))); // true
@@ -205,12 +214,17 @@ console.log(timeForMilkAndCookies(new Date(2013, 0, 23))); // false
 // "George Raymond Richard Martin";
 // "GRRM";
 
-function abbreviateName(name) {
-    return name.split(' ').map(function (word) {
-        return word[0];
-    }).join('');
+function abbreviatedName(name) { //function to abbrevaiate a name
+    let arrayOfName = name.split(' '); // covert the strings of names to an array of names and assign to a variable(arrayOfName) [ 'George', 'Raymond', 'Richard', 'Martin' ]
+    let shortName = []; // create an empty array 
+    for (let i = 0; i < arrayOfName.length; i++) { // i = 0; 0 < 4(true); i = 1; 1 < 4(true); i = 2; 2 < 4(true); i = 3; 3 < 4(true); i = 4; 4 < 4(false)........end
+        shortName.push(arrayOfName[i].charAt(0)); //[G]; [G,R]; [G,R,R]; [G,R,R,M];
+
+    }
+    return shortName.join('') //return [G,R,R,M] as a string = "GRRM"
+
 }
-console.log(abbreviateName("George Raymond Richard Martin")); // GRRM
+console.log(abbreviatedName("George Raymond Richard Martin"));
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -220,12 +234,12 @@ console.log(abbreviateName("George Raymond Richard Martin")); // GRRM
 // potatoes("potatoapple") ➞ 1
 
 function potatoes(str) {
-    return str.split("potato").length - 1;
+    return str.split("potato").length - 1; //the split method with a specified character adds an extra length to the array if nothing occurs before and after the word. length -1 substract and gives the actual length
 }
 
-console.log(potatoes("potato")); // 1
-console.log(potatoes("potatopotato")); // 2
-console.log(potatoes("potatoapple")); // 1
+console.log(`potato length = `, potatoes("potato")); // potato length = 1
+console.log(`potato length = `, potatoes("potatopotato")); // 2
+console.log(`potato length = `, potatoes("potatoapple")); // 1
 
 
 //////////////////////////////////////////////////////////////////
@@ -238,7 +252,7 @@ function tuckIn(array1, array2) {
     console.log(result);
 
     result.splice(1, 0, ...array2); // adds array2 from the index 1 and the spread operator spreads the element of array2
-    return result;
+    return result; 
 
 }
 
@@ -255,13 +269,13 @@ console.log(tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9])); // [1, 2, 3, 4, 5, 6, 7,
 
 
 function detectWord(string) {
-    let hiddenWord = '';
-    for (let char of string) {
-        if (char === char.toLowerCase()) {
-            hiddenWord += char;
+    let hiddenWord = ''; 
+    for (let char of string) { //loops through the characters of the strings UcUNFYGaFYFYGtNUH
+        if (char === char.toLowerCase()) { //checks and get characters strictly in lowerCase 'c', 'a', 't'
+            hiddenWord += char; //adds and assign them to empty string. hiddenWord = '' + 'c', hiddenWord = 'c'; hiddenWord= 'c' + 'a' , hiddenWord = 'ca'; hiddenWord= 'ca' +'t', hiddenWord = 'cat'
         }
     }
-    return hiddenWord;
+    return hiddenWord; //return cat
 }
 
 console.log(detectWord("UcUNFYGaFYFYGtNUH")); // "cat"
@@ -336,17 +350,16 @@ console.log(`The largest number is ${findLargest(sampleNumbers)}`); // "The larg
 
 function findNaNIndexes(arr) {
     let indexes = [];
-  
+
     for (let i = 0; i < arr.length; i++) {
-      if (Number.isNaN(arr[i])) {
-        indexes.push(i);
-      }
+        if (Number.isNaN(arr[i])) {
+            indexes.push(i);
+        }
     }
-  
+
     return indexes;
-  }
-  
-  console.log(findNaNIndexes([2, NaN, 8, 16, 32])); // [1]
-  console.log(findNaNIndexes([2, 4, NaN, 16, 32, NaN])); // [2, 5]
-  console.log(findNaNIndexes([2, 4, 16, 32])); // []
-  
+}
+
+console.log(findNaNIndexes([2, NaN, 8, 16, 32])); // [1]
+console.log(findNaNIndexes([2, 4, NaN, 16, 32, NaN])); // [2, 5]
+console.log(findNaNIndexes([2, 4, 16, 32])); // []
